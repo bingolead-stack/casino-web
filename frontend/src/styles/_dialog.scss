@@ -1,0 +1,36 @@
+.my-dialog {
+  border-radius: 16px;
+  background: #23243f;
+  padding: 48px 32px 40px 32px;
+  width: 640px;
+  max-width: unset;
+  display: flex;
+  flex-direction: column;
+
+  @include for-mobile-only {
+    width: 100%;
+    padding: 30px 12px 12px 12px;
+  }
+
+  &-body {
+    padding: 0;
+    gap: 0;
+  }
+
+  &-title {
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 15px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 0 40px 0;
+    text-transform: uppercase;
+
+    @include for-mobile-only {
+      font-size: 12px;
+      margin: 0 0 30px 0;
+    }
+  }
+}

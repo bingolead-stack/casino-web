@@ -1,0 +1,36 @@
+@import "/src/styles/mixins";
+
+.search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #333;
+  overflow: hidden;
+
+  span {
+    position: absolute;
+    right: 16px;
+  }
+
+  input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 16px 48px 16px 16px;
+    outline: none;
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 335;
+    line-height: 15px;
+    text-align: left;
+
+    &:focus {
+      border-color: #8b8db0;
+    }
+
+    @include for-mobile-only {
+      padding: 16px 16px 16px 48px;
+    }
+  }
+}

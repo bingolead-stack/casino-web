@@ -1,0 +1,108 @@
+"use client";
+
+import React from "react";
+import { FaPlusSquare } from "react-icons/fa";
+import {
+  Pagination,
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  Chip,
+} from "@nextui-org/react";
+import IconCopy from "@/assets/icons/green-copy.svg";
+import RewardCard from "../RewardCard";
+import { allChainsMap } from "@/config/chains";
+
+export default function PageComponent() {
+  return (
+    <div className="flex flex-col gap-[27px] w-full md:p-0 p-[16px]">
+      <div className="flex items-center gap-[18px] md:flex-row flex-col">
+        <RewardCard
+          title="Commission rate"
+          value="0"
+          color="var(--primary-color)"
+        />
+        <RewardCard
+          title="Total Paid"
+          value="$0.00"
+          color="var(--primary-color)"
+        />
+        <RewardCard
+          title="Total Withdrawn"
+          value="$0.00"
+          color="var(--primary-color)"
+        />
+        <div className="flex-[2] flex w-full">
+          <RewardCard
+            title="Available commission"
+            value="$0.00"
+            color="var(--primary-color)"
+          />
+        </div>
+      </div>
+      <Table
+        aria-label="MyBets"
+        className="overflow-x-auto"
+        classNames={{
+          th: "text-[9px] md:text-[14px] md:py-3 bg-[#222733]",
+          td: "text-[10px] md:text-[14px] md:py-3 bg-[#222733]",
+          tr: "border-b-1 border-[#FFFFFF0A]",
+          wrapper: "bg-[#222733]",
+        }}
+      >
+        <TableHeader>
+          <TableColumn>Assets</TableColumn>
+          <TableColumn className="text-right">Total Paid</TableColumn>
+          <TableColumn className="text-right">Total Withdrawn</TableColumn>
+          <TableColumn className="text-right">Total Available</TableColumn>
+        </TableHeader>
+        <TableBody>
+          {[8086, 900, 1, 56, 137, 250].map((e, index) => (
+            <TableRow key={index}>
+              <TableCell>
+                <img
+                  src={allChainsMap[e].icon}
+                  className="w-[27px] h-[27px] rounded-full"
+                  alt={allChainsMap[e].name}
+                />
+              </TableCell>
+              <TableCell>
+                <div className="flex items-center gap-[12px] justify-end">
+                  0.000
+                  <img
+                    src={allChainsMap[e].icon}
+                    className="w-[27px] h-[27px] rounded-full"
+                    alt={allChainsMap[e].name}
+                  />
+                </div>
+              </TableCell>
+              <TableCell>
+                <div className="flex items-center gap-[12px] justify-end">
+                  0.000
+                  <img
+                    src={allChainsMap[e].icon}
+                    className="w-[27px] h-[27px] rounded-full"
+                    alt={allChainsMap[e].name}
+                  />
+                </div>
+              </TableCell>
+              <TableCell>
+                <div className="flex items-center gap-[12px] justify-end">
+                  0.000
+                  <img
+                    src={allChainsMap[e].icon}
+                    className="w-[27px] h-[27px] rounded-full"
+                    alt={allChainsMap[e].name}
+                  />
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
+}

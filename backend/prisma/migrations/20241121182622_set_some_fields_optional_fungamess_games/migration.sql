@@ -1,0 +1,7 @@
+-- AlterTable
+ALTER TABLE "fungamess_games" ALTER COLUMN "demo" DROP NOT NULL,
+ALTER COLUMN "img" DROP NOT NULL,
+ALTER COLUMN "img_vertical" DROP NOT NULL,
+ALTER COLUMN "img_provider" DROP NOT NULL,
+ALTER COLUMN "game_background" DROP NOT NULL,
+ALTER COLUMN "basicRTP" DROP NOT NULL;

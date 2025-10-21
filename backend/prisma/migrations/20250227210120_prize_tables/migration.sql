@@ -1,0 +1,21 @@
+-- CreateTable
+CREATE TABLE "prizes" (
+    "id" SERIAL NOT NULL,
+    "startedAt" TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "endedAt" TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "status" INTEGER NOT NULL DEFAULT 0,
+    "prize" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "updatedAt" TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "prizes_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "prize_users" (
+    "prizeId" INTEGER NOT NULL,
+    "userId" TEXT NOT NULL,
+    "wagered" DOUBLE PRECISION NOT NULL,
+    "prize" DOUBLE PRECISION NOT NULL,
+
+    CONSTRAINT "prize_users_pkey" PRIMARY KEY ("prizeId","userId")
+);

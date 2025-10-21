@@ -1,0 +1,182 @@
+.deposit-withdraw-page {
+  
+  --swiper-navigation-size: 20px;
+  
+  .deposit-withdraw-nav {
+    display: flex;
+    gap: 60px;
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+    background: transparent;
+
+    .navbar-item-wrapper {
+      padding: 8px 20px;
+      position: relative;
+
+      .navbar-item {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        font-family: Outfit;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 12px;
+        text-align: left;
+        text-transform: uppercase;
+        margin: 2px 0 0 0;
+      }
+
+      .bottom-border {
+        background-color: transparent;
+        height: 4px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+
+      &.active {
+        .navbar-item {
+          color: var(--primary-color);
+        }
+
+        .bottom-border {
+          background-color: var(--primary-color);
+        }
+      }
+
+      &:hover {
+        .bottom-border {
+          background-color: var(--primary-color);
+        }
+      }
+    }
+  }
+
+  .popular-networks {
+    width: 100%;
+    .networks {
+      display: flex;
+      height: 100px;
+
+      @include for-mobile-only {
+        height: 71px;
+      }
+
+      .network {
+        border-radius: 12px;
+        border: 1px solid #3b4368;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        cursor: pointer;
+
+        &:hover {
+          border-color: #858caa;
+        }
+
+        img {
+          height: 48px;
+
+          @include for-mobile-only {
+            height: 28px;
+          }
+        }
+
+        span {
+          font-family: Outfit;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 15px;
+          text-align: left;
+        }
+
+        &.selected {
+          border: 1px solid var(--primary-color);
+          background: var(--primary-bg-transparent-color);
+
+          span {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+
+  .section-label {
+    font-family: Outfit;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 15px;
+    text-align: left;
+    margin: 0 0 16px 0;
+  }
+
+  .deposit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 0;
+
+
+    @include for-mobile-only {
+      padding: 24px 12px 12px 12px;
+    }
+
+    .deposit-container {
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+
+      @include for-mobile-only {
+        width: 100%;
+        gap: 32px;
+      }
+
+      .all-networks {
+        width: 100%;
+      }
+
+      .buy-crypto-card {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 50px;
+        border: 1px solid #3b4368;
+        border-radius: 12px;
+
+        @include for-mobile-only {
+          flex-direction: column;
+          gap: 8px;
+          padding: 30px 50px;
+        }
+
+        .title {
+          font-family: Outfit;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 15px;
+          text-align: left;
+          color: #ffffff;
+        }
+
+        .list-box {
+          display: flex;
+          gap: 12px;
+
+          img {
+            cursor: pointer;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+}

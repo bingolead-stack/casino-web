@@ -1,0 +1,53 @@
+@import "/src/styles/mixins";
+
+.container {
+  width: 100%;
+  border-radius: 20px;
+  margin: 24px 0 0 0;
+  background: linear-gradient(151.79deg, #282d39 50.71%, #01d36833 100%);
+}
+
+.leaderboardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 45px;
+  background: linear-gradient(180deg, #272d3c 0%, #1c202a 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 17px 0;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+
+  @include for-mobile-only {
+    gap: 15px;
+  }
+
+  .airdropContestText {
+    font-weight: 600;
+    line-height: 45px;
+    font-size: 30px;
+
+    background: linear-gradient(
+      91.63deg,
+      #57dd40 10.55%,
+      #92cbf7 47.53%,
+      #fdcb35 71.94%
+    );
+
+    color: transparent;
+    background-clip: text;
+    text-align: center;
+
+    @include for-mobile-only {
+      line-height: 27px;
+      font-size: 20px;
+    }
+  }
+}

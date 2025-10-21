@@ -1,0 +1,24 @@
+{
+  "background_color": "#1A1D26",
+  "categories": ["Casino, Casino, Slots, Crypto"],
+  "description": "Casino is operated by Virtuo Ltd (Registered address, Thiseos, 7, Flat/Office 001 Strovolos 2042, Lefkosia, Cyprus).",
+  "dir": "ltr",
+  "display": "browser",
+  "display_override": ["browser"],
+  "icons": [
+    {
+      "src": "/favicon/apple-touch-icon.png"
+    }
+  ],
+  "lang": "en",
+  "name": "Casino",
+  "orientation": "any",
+  "screenshots": [
+    {
+      "src": "/images/screenshots/screenshot_0.webp"
+    }
+  ],
+  "short_name": "Casino",
+  "start_url": "/",
+  "theme_color": "#1A1D26"
+}

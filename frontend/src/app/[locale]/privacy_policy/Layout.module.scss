@@ -1,0 +1,77 @@
+@import "/src/styles/mixins";
+
+.container {
+  @include for-mobile-only {
+    padding: 12px 12px 50px 12px;
+  }
+}
+
+.vertical_tabs {
+  display: flex;
+  gap: 0px;
+  margin-top: 54px;
+  font-family: Outfit;
+  font-size: 15.8px;
+  line-height: 27px;
+
+  @include for-mobile-only {
+    flex-direction: column;
+  }
+}
+
+.tabs {
+  display: flex;
+  width: 288px;
+  flex-direction: column;
+  background-color: #1c202a;
+  border-top-left-radius: 13.5px;
+  border-bottom-left-radius: 13.5px;
+  padding: 9px;
+
+  @include for-mobile-only {
+    width: 100%;
+    padding: 4px;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .tab {
+    font-family: Outfit;
+    font-size: 15.8px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+    color: #ffffff8e;
+    padding: 10px;
+    cursor: pointer;
+
+    @include for-mobile-only {
+      font-size: 12px;
+    }
+
+    &.active {
+      color: #f0f0f0;
+      font-weight: bold;
+      background-color: #222733;
+      border-radius: 9px;
+    }
+  }
+}
+
+.content {
+  padding: 45px;
+  flex: 1;
+  background-color: #222733;
+  border: 1px;
+  border-top-right-radius: 13.5px;
+  border-bottom-right-radius: 13.5px;
+  display: flex;
+  flex-direction: column;
+
+  @include for-mobile-only {
+    padding: 18px;
+  }
+}

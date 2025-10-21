@@ -1,0 +1,21 @@
+:root {
+  --background: #1a1d26;
+  --header-background: #151820;
+  --foreground: #b4b4b4;
+  --highlight-background: #232a34;
+
+  --primary-color: #BD59FF;
+  --primary-hover-color: #b243fd;
+  --primary-bg-transparent-color: #37c9961d;
+  --sidebar-background: #151d24;
+  --footer-background: #1a1d26;
+  --toastify-font-family: "Outfit";
+  --toastify-font-size: 12px;
+}
+
+.dark,
+[data-theme="dark"] {
+  input {
+    --nextui-font-size-small: 16px;
+  }
+}

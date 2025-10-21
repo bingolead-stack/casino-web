@@ -1,0 +1,27 @@
+.container {
+  background: linear-gradient(180deg, #1a1d26 0%, #272d3c 100%);
+  border: 1px solid #ffffff0a;
+  border-radius: 18px;
+  flex: 1;
+  gap: 5px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .title {
+    font-family: Inter;
+    font-size: 15.8px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #ffffff8e;
+  }
+
+  .value {
+    font-family: Inter;
+    font-size: 24.8px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #ffffff;
+  }
+}

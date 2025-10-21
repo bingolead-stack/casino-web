@@ -1,0 +1,77 @@
+@import "/src/styles/mixins";
+
+.gameGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include for-mobile-only {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+  }
+
+  .titleBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 16px 0;
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .text {
+        font-family: Outfit;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 18px;
+        text-align: left;
+        color: #fff;
+
+        @include for-mobile-only {
+          font-size: 14px;
+          line-height: 14px;
+        }
+      }
+    }
+
+    .view {
+      background: #222733;
+      border-radius: 8px;
+      color: #FFFFFFB7;
+      font-family: Outfit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 27px;
+      text-align: left;
+      padding: 9px 16px;
+
+      &:hover {
+        background: #322135;
+      }
+
+      @include for-mobile-only() {
+        padding: 4px 8px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .games {
+    width: 100%;
+
+    .game {
+      width: 160px;
+      
+      @include for-mobile-portrait-only {
+        width: unset;
+      }
+      
+      @include for-mobile-landscape-only {
+        width: 120px;
+      }
+    }
+  }
+}

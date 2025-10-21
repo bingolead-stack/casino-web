@@ -1,0 +1,23 @@
+export type TokenResponseDto = {
+  key: string;
+  name: string;
+  decimals: number;
+  symbol: string;
+  address: string;
+  addresses: { [chain: string]: string };
+  platform: string;
+  network: string;
+  price: number;
+  images: [string];
+  updatedAt: string;
+  createdAt: string;
+  tokens: [string];
+  poolAddress: string;
+  liquidity: number;
+  metrics: { [key: string]: string };
+  metadata: { [key: string]: string };
+  image: string;
+  totalSupply: string;
+  reserves: [string];
+  pricePerShare: string;
+};

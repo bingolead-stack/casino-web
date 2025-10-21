@@ -1,0 +1,19 @@
+@import "/src/styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 16px;
+  gap: 10px;
+  background: #1c202a;
+  border-right: 1px solid #FFFFFF0A;
+  transition: all 0.2s;
+
+  @include for-mobile-only {
+    position: fixed;
+    z-index: 100;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 22px 16px 100px 16px;
+  }
+}

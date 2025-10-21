@@ -1,0 +1,23 @@
+@include for-not-mobile() {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888888ba;
+    border-radius: 6px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

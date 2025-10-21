@@ -1,0 +1,111 @@
+@import "/src/styles/mixins";
+
+.navbar {
+  display: flex;
+  gap: 12px;
+  height: 100%;
+
+  &-item-wrapper {
+    padding: 8px;
+    position: relative;
+
+    @include for-mobile-only {
+      flex: 1;
+    }
+
+    .navbar-item {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      @include for-mobile-only {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      &-icon {
+        margin: 0 8px 0 0;
+
+        svg {
+          fill: var(--foreground);
+          stroke: transparent;
+
+          path {
+            fill: var(--foreground);
+          }
+        }
+
+        @include for-mobile-only {
+          margin: 0 0 4px 0;
+        }
+      }
+
+      &-text {
+        font-family: Outfit;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 12px;
+        text-align: left;
+        text-transform: uppercase;
+        margin: 2px 0 0 0;
+
+        @include for-mobile-only {
+          font-size: 9px;
+          line-height: 9px;
+          margin: 0;
+        }
+      }
+    }
+
+    .bottom-border {
+      background-color: transparent;
+      height: 4px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+
+    &.active {
+      .navbar-item {
+        &-icon {
+          svg {
+            fill: var(--primary-color);
+            stroke: transparent;
+
+            path {
+              fill: var(--primary-color);
+            }
+          }
+        }
+
+        &-text {
+          color: var(--primary-color);
+        }
+      }
+
+      .bottom-border {
+        background-color: var(--primary-color);
+      }
+    }
+
+    &:hover {
+      .bottom-border {
+        background-color: var(--primary-color);
+      }
+    }
+  }
+
+  @include for-mobile-only {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 57px;
+    background: var(--header-background);
+    padding: 0 10px;
+  }
+}

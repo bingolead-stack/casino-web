@@ -1,0 +1,15 @@
+.login-with-button {
+  background: #ffffff1a;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  transition: all 0.2s;
+  gap: 8px;
+
+  &:hover:not(:active) {
+    background: #ffffff39;
+  }
+}

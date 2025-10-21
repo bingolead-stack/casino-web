@@ -1,0 +1,110 @@
+@import "/src/styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  padding: 0 0 100px 0;
+
+  @include for-mobile-only {
+    padding: 16px 16px 48px 16px;
+  }
+}
+
+.bubble {
+  overflow: hidden;
+  border: 1px solid #ffffff04;
+  background: linear-gradient(#222733, #1c202a);
+  display: flex;
+  flex-direction: row;
+  padding: 18px 27px 22px 27px;
+  border-radius: 22.5px;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  gap: 27px;
+  @include for-mobile-only {
+    flex-direction: column;
+  }
+  .infos {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .title {
+      font-size: 29.3px;
+      line-height: 45px;
+      font-weight: 700;
+      font-family: "Outfit";
+    }
+
+    .info {
+      color: #ffffff80;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+      font-family: "Outfit";
+    }
+  }
+}
+
+.bubbleColumn {
+  overflow: hidden;
+  border: 1px solid #ffffff04;
+  background: linear-gradient(#222733, #1c202a);
+  display: flex;
+  flex-direction: column;
+  padding: 29px 36px 27px 36px;
+  border-radius: 22.5px;
+  gap: 22px;
+}
+
+.h2 {
+  font-family: Outfit;
+  font-size: 24.8px;
+  font-weight: 700;
+  line-height: 34.65px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff;
+}
+
+.h4 {
+  font-family: Outfit;
+  font-size: 15.8px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff;
+}
+
+.h5 {
+  font-family: Outfit;
+  font-size: 15.8px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #ffffff8e;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  .listitem {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+    .symbol {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}

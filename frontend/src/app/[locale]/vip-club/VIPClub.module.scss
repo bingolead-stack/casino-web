@@ -1,0 +1,60 @@
+@import "/src/styles/mixins";
+
+.neverEndingText {
+  font-weight: 600;
+  line-height: 45px;
+  font-size: 36px;
+
+  background: linear-gradient(
+    91.63deg,
+    #57dd40 10.55%,
+    #92cbf7 47.53%,
+    #fdcb35 71.94%
+  );
+
+  color: transparent;
+  background-clip: text;
+  text-align: center;
+
+  @include for-mobile-only {
+    line-height: 27px;
+    font-size: 20px;
+  }
+}
+
+.levelUpTitle {
+  border-radius: 100px;
+  background: linear-gradient(135deg, #57dd40 0%, #92cbf7 50%, #fdcb35 100%);
+  padding: 18px 52px;
+  font-family: Outfit;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 45px;
+  color: black;
+
+  @include for-mobile-only {
+    line-height: 27px;
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+}
+
+.faqTitle {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 45px;
+  background: linear-gradient(180deg, #272d3c 0%, #1c202a 100%);
+  position: relative;
+  overflow: hidden;
+
+  @include for-mobile-only {
+    height: 80px;
+    line-height: 27px;
+    font-size: 20px;
+  }
+}

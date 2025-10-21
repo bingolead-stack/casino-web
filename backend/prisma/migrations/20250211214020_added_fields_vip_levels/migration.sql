@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "vip_levels" ADD COLUMN     "levelUpBonus" DOUBLE PRECISION NOT NULL DEFAULT 0,
+ADD COLUMN     "title" TEXT NOT NULL DEFAULT '';

@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE "token_prices" ADD COLUMN     "minimumLimit" DOUBLE PRECISION NOT NULL DEFAULT 0,
+ADD COLUMN     "tokenDecimals" INTEGER NOT NULL DEFAULT 18,
+ADD COLUMN     "tokenIcon" TEXT NOT NULL DEFAULT '',
+ADD COLUMN     "tokenName" TEXT NOT NULL DEFAULT '',
+ADD COLUMN     "tokenSymbol" TEXT NOT NULL DEFAULT '';

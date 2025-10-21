@@ -1,0 +1,93 @@
+.deposit-dialog {
+  .qr-description {
+    margin: 37px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @include for-mobile-only {
+      margin: 20px 0 0 0;
+      gap: 20px;
+    }
+
+    .qr-wrapper {
+      padding: 12px;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+
+      @include for-mobile-only {
+        padding: 8px;
+      }
+    }
+
+    .description {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 10px 0;
+
+      @include for-mobile-only {
+        gap: 8px;
+        padding: 0;
+      }
+
+      p {
+        font-family: Outfit;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 15px;
+        text-align: left;
+
+        @include for-mobile-only {
+          font-size: 10px;
+          line-height: 13px;
+        }
+      }
+    }
+  }
+
+  .instant-deposit {
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &-title {
+      font-family: Outfit;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 15px;
+      text-align: left;
+      color: #fff;
+
+      @include for-mobile-only {
+        font-size: 10px;
+        line-height: 13px;
+      }
+    }
+
+    &-input {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+
+      @include for-mobile-only {
+        flex-direction: column;
+      }
+
+      input {
+        flex: 1;
+      }
+
+      button {
+        width: 480px;
+
+        @include for-mobile-only {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

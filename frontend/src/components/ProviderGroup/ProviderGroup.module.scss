@@ -1,0 +1,115 @@
+@import "/src/styles/mixins";
+
+.providerGroup {
+  display: flex;
+  flex-direction: column;
+
+  @include for-mobile-only {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+  }
+
+  .titleBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 14px 0;
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .text {
+        font-family: Outfit;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 18px;
+        text-align: left;
+        color: #fff;
+
+        @include for-mobile-only {
+          font-size: 14px;
+          line-height: 14px;
+        }
+      }
+    }
+
+    .view {
+      border-radius: 8px;
+      background: var(--trending-color);
+      color: #000;
+      font-family: Outfit;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 12px;
+      text-align: left;
+      text-transform: uppercase;
+      padding: 6px 8px;
+    }
+  }
+
+  .providers {
+    width: 100%;
+
+    .providerItem {
+      width: fit-content;
+    }
+
+    .provider {
+      background: var(--highlight-background);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      height: 56px;
+      gap: 10px;
+
+      @include for-mobile-only {
+        padding: 0 12px;
+        height: 48px;
+        gap: 6px;
+      }
+
+      @include for-not-mobile {
+        &:hover:not(:active) {
+          background: #101418;
+        }
+      }
+
+      .providerName {
+        font-size: 16px;
+        line-height: 18px;
+        text-transform: capitalize;
+
+        @include for-mobile-only {
+          font-size: 12px;
+        }
+      }
+    }
+
+    :global {
+      .prev, .next {
+        width: 30px;
+        height: 40px;
+        background: #0009;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        top: calc(50% - 20px);
+        cursor: pointer;
+      }
+    
+      .prev {
+        left: 10px;
+      }
+    
+      .next {
+        right: 10px;
+      }
+    }
+  }
+}

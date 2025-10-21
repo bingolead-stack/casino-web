@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "users" ADD COLUMN     "bonus_sum" DOUBLE PRECISION NOT NULL DEFAULT 0;

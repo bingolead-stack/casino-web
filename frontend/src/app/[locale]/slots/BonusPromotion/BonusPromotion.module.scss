@@ -1,0 +1,90 @@
+@import "/src/styles/mixins";
+
+.container {
+  padding: 41px 0 45px 0;
+  position: relative;
+  background: linear-gradient(180deg, #313745 31.71%, #392243 100%);
+  border-radius: 18px;
+  box-shadow: inset 0px 0px 6px 1px #dfdcdc23;
+  overflow: hidden;
+
+  @include for-mobile-only() {
+    padding: 24px 0;
+  }
+
+  .title {
+    padding: 0 46px;
+
+    @include for-mobile-only() {
+      padding: 0 24px;
+    }
+
+    h2 {
+      font-family: Outfit;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 72px;
+      color: #7feb6b;
+      text-transform: uppercase;
+
+      @include for-mobile-only() {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+
+    .description {
+      font-family: Outfit;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 30.24px;
+      text-transform: uppercase;
+      color: #67738f;
+
+      @include for-mobile-only() {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .claimSection {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 28px 46px 0 46px;
+    border-top: 1px solid #ffffff0a;
+    margin: 45px 0 0 0;
+
+    @include for-mobile-only() {
+      margin: 24px 0 0 0;
+      padding: 20px 24px 0 24px;
+      gap: 18px;
+      flex-direction: column;
+    }
+
+    &_Description {
+      font-family: Outfit;
+      font-size: 15.8px;
+      font-weight: 400;
+      line-height: 27px;
+      color: #ffffff8e;
+
+      @include for-mobile-only() {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+  }
+
+  .promotionImage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+
+    @include for-mobile-only {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "/src/styles/mixins";
+
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+}

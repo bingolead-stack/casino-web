@@ -1,0 +1,36 @@
+@import "/src/styles/mixins";
+
+.copy-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 12px;
+  background: #191D26;
+  border: 1px solid #414259;
+  padding: 12px 20px;
+  outline: none;
+  gap: 20px;
+
+  @include for-mobile-only {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+
+  div {
+    flex: 1;
+    font-family: Outfit;
+    font-size: 14px;
+    font-weight: 335;
+    line-height: 15px;
+    text-align: left;
+    word-break: break-all;
+
+    @include for-mobile-only {
+      font-size: 12px;
+    }
+  }
+
+  button {
+    height: 33px;
+  }
+}

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "settings" ALTER COLUMN "value" DROP NOT NULL;

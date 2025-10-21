@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid #ffffff0a;
+  background: #1c202a;
+  overflow: hidden;
+
+  .title {
+    padding: 22.5px;
+    border-bottom: 1px solid #ffffff0a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .titleText {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+
+      h5 {
+        font-family: Inter;
+        font-size: 20.3px;
+        font-weight: 600;
+        line-height: 27px;
+        color: #fff;
+      }
+
+      div {
+        font-family: Inter;
+        font-size: 15.8px;
+        font-weight: 400;
+        line-height: 27px;
+        color: #ffffff8e;
+      }
+    }
+  }
+
+  .content {
+    padding: 22.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+  }
+}

@@ -1,0 +1,17 @@
+.page_loading_overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 51;
+  background: #0004;
+
+  img {
+    width: 64px;
+  }
+}

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "users" ADD COLUMN     "cash_0" DOUBLE PRECISION NOT NULL DEFAULT 0;

@@ -1,0 +1,15 @@
+.searchButton {
+  display: flex;
+  padding: 12px;
+  border: 1px solid #3b4368;
+  border-radius: 12px;
+  width: 56px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid var(--primary-color);
+  }
+}

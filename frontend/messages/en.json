@@ -1,0 +1,39 @@
+{
+  "Sidebar": {
+    "User_Center": "User Center",
+    "Recent": "Recent",
+    "Favourites": "Favourites",
+    "My_Bets": "My Bets",
+    "Casino_Games": "Casino Games",
+    "Slots": "Slots",
+    "Bonus_Buy": "Bonus Buy",
+    "New_Games": "New Games",
+    "Live_Casino": "Live Casino",
+    "Table_Games": "Table Games",
+    "Game_Shows": "Game Shows",
+    "Roulette": "Roulette",
+    "Blackjack": "Blackjack",
+    "Baccarat": "Baccarat",
+    "Casino_Features": "Casino Features",
+    "Promotions": "Promotions",
+    "Affiliates": "Affiliates",
+    "VIP_Club": "VIP Club",
+    "NEW": "NEW",
+    "SOON": "SOON"
+  },
+  "ProfileMain": {
+    "Player_ID": "Player ID",
+    "REFER_A_FRIEND": "REFER A FRIEND",
+    "Deposit": "Deposit",
+    "Withdraw": "Withdraw",
+    "Transfer_Balance": "Transfer Balance",
+    "Financial_activity": "Financial activity",
+    "Payment_history": "Payment history",
+    "Casino_history": "Casino history",
+    "Sportsbook_history": "Sportsbook history",
+    "Settings": "Settings",
+    "Help_and_information": "Help and information",
+    "Log_out": "Log out",
+    "Personalization": "Personalization"
+  }
+}

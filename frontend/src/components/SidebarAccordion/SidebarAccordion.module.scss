@@ -1,0 +1,51 @@
+.container {
+  width: 100%;
+  border-radius: 20px;
+
+  &.yellow {
+    background: linear-gradient(
+      151.79deg,
+      #282d39 31.71%,
+      rgba(255, 190, 24, 0.2) 100%
+    );
+  }
+
+  &.green {
+    background: linear-gradient(151.79deg, #282d39 31.71%, #01d36833 100%);
+  }
+
+  &.blue {
+    background: linear-gradient(151.79deg, #282d39 31.71%, #00d1ff33 100%);
+  }
+
+  &.purple {
+    background: linear-gradient(0deg, #282d39, #282d39),
+      linear-gradient(
+        151.79deg,
+        rgba(26, 29, 38, 0) 31.71%,
+        rgba(154, 0, 255, 0.2) 100%
+      );
+    background-blend-mode: overlay;
+  }
+}
+
+.text_yellow {
+  color: #fdcb35 !important;
+}
+
+.text_green {
+  color: #5ddb49 !important;
+}
+
+.text_blue {
+  color: #35c1fd !important;
+}
+
+.selectedItem {
+  svg path {
+    fill: var(--primary-color);
+  }
+  .text {
+    color: #fff !important;
+  }
+}

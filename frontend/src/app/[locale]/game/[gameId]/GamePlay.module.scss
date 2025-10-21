@@ -1,0 +1,17 @@
+@import "/src/styles/mixins";
+
+.container {
+  width: 100%;
+  height: calc(100vh - 114px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 16px;
+  
+
+  @include for-mobile-only {
+    height: calc(var(--vh)*100 - 130px);
+  }
+}

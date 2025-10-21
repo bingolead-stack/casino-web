@@ -1,0 +1,158 @@
+@import "/src/styles/mixins";
+
+.footer {
+  background: var(--footer-background);
+  border-top: 1px solid #ffffff0a;
+
+  .content {
+    padding: 76px 0 66px 0;
+    display: flex;
+    flex-direction: column;
+
+    @include for-mobile-only {
+      padding: 27px 24px 32px 24px;
+      gap: 32px;
+    }
+
+    .footerContent {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      @include for-mobile-only {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      h5 {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        line-height: 27px;
+        text-align: left;
+        color: #ffffff;
+        margin: 0 0 18px 0;
+
+        @include for-mobile-only {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+
+      .premium {
+        .description {
+          margin: 0 0 40px 0;
+          max-width: 567px;
+          display: flex;
+          flex-direction: column;
+
+          @include for-mobile-only {
+            margin: 0 0 30px 0;
+          }
+
+          .logo {
+            margin: 0 0 25px 0;
+
+            @include for-mobile-only {
+              margin: 0 0 12px 0;
+            }
+          }
+        }
+
+        .buttons {
+          display: flex;
+          gap: 18px;
+
+          @include for-mobile-only {
+            flex-wrap: wrap;
+          }
+        }
+      }
+
+      .shortcuts {
+        display: flex;
+        gap: 54px;
+
+        @include for-mobile-only {
+          gap: 40px;
+          padding: 0;
+        }
+
+        .shortcutGroup {
+          display: flex;
+          flex-direction: column;
+
+          ul {
+            display: grid;
+            row-gap: 13px;
+
+            li {
+              list-style: none;
+              font-family: Outfit;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 19px;
+              text-align: left;
+              margin: 0;
+              padding: 4px 0;
+              color: #ffffff8e;
+
+              @include for-mobile-only {
+                font-size: 14px;
+                line-height: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .chains {
+      margin: 0 0 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 7px;
+
+      @include for-mobile-only {
+        margin: 0 0 20px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+    }
+  }
+
+  .footerLine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #242646;
+    padding: 40px 0px;
+
+    @include for-mobile-only {
+      height: unset;
+      gap: 20px;
+      padding: 30px 24px;
+      flex-direction: column;
+    }
+
+    .descriptionText {
+      margin: 40px 0 0 0;
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 27px;
+      text-align: left;
+      color: #ffffff81;
+
+      @include for-mobile-only {
+        margin: 20px 0 0 0;
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}

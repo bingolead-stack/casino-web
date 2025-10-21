@@ -1,0 +1,61 @@
+@import "/src/styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 10px;
+  background: #1c202a;
+  border-left: 1px solid #ffffff0a;
+  transition: all 0.2s;
+  height: calc(100vh - 60px);
+  overflow: auto;
+  position: fixed;
+  z-index: 38;
+  right: 0;
+
+  @include for-mobile-only {
+    height: calc(100vh - 107px);
+    overflow-y: auto;
+  }
+
+  .chatButton {
+    height: 36px;
+    padding: 0 7.5px;
+    display: flex;
+    align-items: center;
+    gap: 4.5px;
+    border: 1px solid #ffffff11;
+    border-radius: 6px;
+    background: #1a1d26;
+    font-family: Outfit;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 18px;
+
+    &:hover:not(:active) {
+      background: #232631;
+    }
+  }
+}
+
+.expandButton {
+  min-width: 0px;
+  width: 63px;
+  height: 63px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #222733;
+  box-shadow: 0px 0px 4px 0px #ffffff11 inset;
+  position: fixed;
+  z-index: 38;
+  right: 20px;
+  bottom: 77px;
+
+  &:hover:not(:active) {
+    box-shadow: 0px 0px 10px 2px #ffffff33 inset;
+  }
+}

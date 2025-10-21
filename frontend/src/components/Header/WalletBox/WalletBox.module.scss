@@ -1,0 +1,79 @@
+@import "/src/styles/mixins";
+
+.container {
+  display: flex;
+  position: relative;
+  height: 40px;
+
+  @include for-mobile-only {
+    height: 36px;
+  }
+
+  .walletToken {
+    background: linear-gradient(0deg, #222733, #222733),
+      linear-gradient(
+        -151.79deg,
+        rgba(26, 29, 38, 0) 31.71%,
+        rgba(1, 211, 104, 0.2) 100%
+      );
+    background-blend-mode: overlay;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 10px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    @include for-mobile-only {
+      padding: 0 6px;
+      gap: 6px;
+    }
+    .symbol {
+      @include for-mobile-only {
+        display: none;
+      }
+    }
+  }
+
+  .walletBalance {
+    background: linear-gradient(0deg, #222733, #222733),
+      linear-gradient(
+        151.79deg,
+        rgba(26, 29, 38, 0) 31.71%,
+        rgba(1, 211, 104, 0.2) 100%
+      );
+    background-blend-mode: overlay;
+    font-family: Outfit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 27px;
+    text-align: center;
+    padding: 0 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    color: #fff;
+
+    @include for-mobile-only {
+      padding: 0 6px;
+      font-size: 14px;
+    }
+  }
+
+  .walletDropdown {
+    width: 288px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 8px);
+    // background: linear-gradient(151.79deg, rgba(26, 29, 38, 1) 31.71%, #174236);
+    background: #232733;
+    border-radius: 16px;
+
+    @include for-mobile-only {
+      left: -40px;
+      width: 200px;
+    }
+  }
+}

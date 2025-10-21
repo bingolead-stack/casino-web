@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./mixins";
+@import "./variables";
+@import "./font";
+@import "./common";
+@import "./button";
+@import "./layout";
+@import "./input";
+@import "./header";
+@import "./login";
+@import "./scrollbar";
+@import "./deposit_withdraw";
+@import "./searchable_selector";
+@import "./dialog";
+@import "./swiper";
+@import "./deposit_dialog";
+@import "./verification_badge";

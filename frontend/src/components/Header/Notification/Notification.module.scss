@@ -1,0 +1,55 @@
+@import "/src/styles/mixins";
+
+.container {
+  position: relative;
+
+  @include for-mobile-only {
+    display: none;
+  }
+}
+
+.notification {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #282d39 31.71%, #472a39 100%);
+  border-radius: 18px;
+
+  &:hover:not(:active) {
+    background: linear-gradient(180deg, #474f62 31.71%, #5f3c4e 100%);
+  }
+
+  .badge {
+    width: 8px;
+    height: 8px;
+    border-radius: 20px;
+    background: #f00;
+    position: absolute;
+    top: 6px;
+    right: 4px;
+    z-index: 1;
+  }
+}
+
+.notificationBox {
+  width: 288px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: -130px;
+  top: calc(100% + 8px);
+  background: linear-gradient(151.79deg, #232733 31.71%, #174236);
+  // background: #232733;
+  border-radius: 16px;
+  padding: 0 0 10px 0;
+
+  @include for-mobile-only {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 1000%;
+    height: 100%;
+  }
+}

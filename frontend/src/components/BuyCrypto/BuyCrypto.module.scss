@@ -1,0 +1,15 @@
+@import "/src/styles/mixins";
+
+.container {
+  width: 100%;
+  border-radius: 13.5px;
+  background: linear-gradient(151.79deg, #282d39 31.71%, #d3010133 100%);
+  display: flex;
+  align-items: center;
+  padding: 18px 27px;
+
+  @include for-mobile-only() {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

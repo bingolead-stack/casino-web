@@ -1,0 +1,40 @@
+.my-swiper {
+  .prev, .next {
+    position: absolute;
+    z-index: 1;
+    width: 44px;
+    height: 64px;
+    background: #0006;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    top: calc(50% - 32px);
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include for-not-mobile {
+      &:hover:not(:active) {
+        background: #0009;
+      }
+    }
+
+    @include for-mobile-only {
+      width: 30px;
+      height: 40px;
+      top: calc(50% - 20px);
+    }
+  }
+
+  .prev {
+    left: 12px;
+  }
+
+  .next {
+    right: 12px;
+  }
+
+  .swiper-button-disabled {
+    display: none;
+  }
+}

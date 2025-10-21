@@ -1,0 +1,38 @@
+{
+  "Sidebar": {
+    "User_Center": "مركز المستخدم",
+    "Recent": "الأحدث",
+    "Favourites": "المفضلة",
+    "My_Bets": "رهاناتي",
+    "Casino_Games": "ألعاب الكازينو",
+    "Slots": "آلات القمار",
+    "Bonus_Buy": "شراء المكافآت",
+    "New_Games": "ألعاب جديدة",
+    "Live_Casino": "كازينو مباشر",
+    "Table_Games": "ألعاب الطاولة",
+    "Game_Shows": "عروض الألعاب",
+    "Roulette": "الروليت",
+    "Blackjack": "البلاك جاك",
+    "Baccarat": "الباكارات",
+    "Casino_Features": "ميزات الكازينو",
+    "Promotions": "العروض الترويجية",
+    "Affiliates": "الشركاء",
+    "VIP_Club": "نادي كبار الشخصيات",
+    "NEW": "جديد"
+  },
+  "ProfileMain": {
+    "Player_ID": "معرف اللاعب",
+    "REFER_A_FRIEND": "أوصِ صديقًا",
+    "Deposit": "إيداع",
+    "Withdraw": "سحب",
+    "Transfer_Balance": "تحويل الرصيد",
+    "Financial_activity": "النشاط المالي",
+    "Payment_history": "تاريخ الدفعات",
+    "Casino_history": "تاريخ الكازينو",
+    "Sportsbook_history": "تاريخ المراهنات الرياضية",
+    "Settings": "الإعدادات",
+    "Help_and_information": "المساعدة والمعلومات",
+    "Log_out": "تسجيل الخروج",
+    "Personalization": "التخصيص"
+  }
+}

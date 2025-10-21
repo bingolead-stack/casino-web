@@ -1,0 +1,24 @@
+export type tSummarizedTransaction = {
+  userId: string;
+  depositCrypto?: number | null;
+  depositManual?: number | null;
+  depositVisa?: number | null;
+  depositAgent?: number | null;
+  depositBonus?: number | null;
+  referralBonus?: number | null;
+  levelupBonus?: number | null;
+  leaderboardBonus?: number | null;
+  rakeback?: number | null;
+  transferIn?: number | null;
+  withdrawCrypto?: number | null;
+  withdrawManual?: number | null;
+  withdrawBanned?: number | null;
+  withdrawCancelled?: number | null;
+  withdrawRequested?: number | null;
+  transferOut?: number | null;
+  casinoBet?: number | null;
+  casinoWin?: number | null;
+  sportBet?: number | null;
+  sportWin?: number | null;
+  sportRollback?: number | null;
+};

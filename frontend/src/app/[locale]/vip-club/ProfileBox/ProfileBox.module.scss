@@ -1,0 +1,25 @@
+@import "/src/styles/mixins";
+
+.container {
+  padding: 45px 54px;
+  position: relative;
+  background: linear-gradient(180deg, #2b3344 20%, #222834 100%);
+  border-radius: 18px;
+  box-shadow: 0px 0px 3px #0e0606;
+  overflow: hidden;
+
+  @include for-mobile-only {
+    padding: 18px;
+  }
+
+  .promotionImage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+
+    @include for-mobile-only {
+      display: none;
+    }
+  }
+}

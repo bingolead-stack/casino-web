@@ -1,0 +1,98 @@
+@import "/src/styles/mixins";
+
+.gameWrapper {
+  position: relative;
+  .game {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include for-mobile-only {
+      width: unset;
+      gap: 8px;
+    }
+
+    .imgWrapper {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1;
+
+      .gameImage {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+
+      .gamePlaceholderImage {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        @include for-mobile-only {
+          // width: 160px;
+          // height: 160px;
+        }
+      }
+
+      .overlap {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(#0002 0%, #0008 100%);
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        .play {
+          width: 70px;
+          height: 70px;
+          border-radius: 100%;
+          background: radial-gradient(circle,rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 1) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s;
+
+          @include for-not-mobile {
+            // &:hover:not(:active) {
+            //   background: var(--primary-hover-color);
+            // }
+          }
+        }
+      }
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      font-family: Outfit;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 15px;
+      color: #e3e4e5;
+
+      @include for-mobile-only {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @include for-not-mobile {
+    &:hover {
+      .game .imgWrapper .overlap {
+        opacity: 1;
+      }
+    }
+  }
+}

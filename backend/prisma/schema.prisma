@@ -1,0 +1,595 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["omitApi"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TransactionType {
+  deposit
+  withdrawal
+  rollback
+  user_withdrawal // money went from agent to the user
+  user_deposit // money came to agent from user
+  bet
+  win
+  refund
+  promo_win
+  tournament_win
+}
+
+enum UserRole {
+  NORMAL
+  ADMIN
+  SUB_USER
+  AGENT
+  SUB_ADMIN
+  SUPER_ADMIN
+}
+
+model User {
+  id                  String   @id
+  email               String   @unique
+  userName            String
+  emailVerified       Boolean  @default(false)
+  verifyCode          String
+  verityTimeLimit     DateTime @db.Timestamptz(3)
+  password            String
+  role                UserRole @default(NORMAL)
+  agentId             String?
+  referCode           String
+  refererId           String?
+  subscription        String?
+  isDeleted           Boolean  @default(false)
+  cash                Float
+  bonus               Float
+  locked              Float
+  bonus_sum          Float    @default(0)
+  wantBonus           Boolean?
+  bonusWithdrawPassed Boolean  @default(false)
+  btcAddress          String?
+  btcPk               String?
+  ethAddress          String?
+  ethPk               String?
+  solanaAddress       String?
+  solanaPk            String?
+  ltcPk               String?
+  ltcAddress          String?
+  createdAt           DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt           DateTime @default(now()) @updatedAt @db.Timestamptz(3)
+  vipLevel            Int      @default(0)
+  wagered             Float    @default(0)
+  avatar              String?
+  cash_8086           Float    @default(0) // BTC
+  cash_900            Float    @default(0) // SOL
+  cash_1              Float    @default(0) // ETH
+  cash_56             Float    @default(0) // BNB
+  cash_137            Float    @default(0) // POL
+  cash_43114          Float    @default(0) // AVAX
+  cash_250            Float    @default(0) // FANTOM
+  cash_0              Float    @default(0) // USD
+  cash_2741           Float    @default(0) // Abstract
+  cash_usdt           Float    @default(0) // USDT
+  cash_usdc           Float    @default(0) // USDC
+  cash_18087          Float    @default(0) // LTC
+
+  supportingUser    Boolean @default(false)
+  smUserCursor      BigInt  @default(0) // Last support message id seen by user
+  smSupporterCursor BigInt  @default(0) // Last support message id seen by supporter
+
+  Wallet          Wallet[]
+  Agent           Agent?            @relation(fields: [agentId], references: [id])
+  Transaction     Transaction[]
+  WithdrawRequest WithdrawRequest[]
+  ChatMessage     ChatMessage[]
+  SupportMessage  SupportMessage[]
+  UserActivity    UserActivity[]
+  XSwiftlyRequest XSwiftlyRequest[]
+  PrizeUser       PrizeUser[]
+  PendingMoney    PendingMoney[]
+
+  @@map("users")
+}
+
+model Wallet {
+  id     Int    @id @default(autoincrement())
+  userId String
+  wallet String
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@unique([userId, wallet])
+  @@map("wallets")
+}
+
+model Agent {
+  id        String   @id
+  userName  String
+  password  String
+  referCode String   @default("")
+  refererId String?
+  isDeleted Boolean  @default(false)
+  cash      Float
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(3)
+
+  User             User[]
+  AgentTransaction AgentTransaction[]
+
+  @@map("agents")
+}
+
+model AgentTransaction {
+  id              Int             @id @default(autoincrement())
+  agentId         String
+  transactionType TransactionType
+  cash            Float
+  createdAt       DateTime        @default(now()) @db.Timestamptz(3)
+  userId          String?
+
+  Agent Agent @relation(fields: [agentId], references: [id])
+
+  @@map("agent_transactions")
+}
+
+enum TransactionCurrency {
+  AUD
+  AZN
+  BDT
+  BOB
+  BRL
+  CAD
+  CLP
+  EUR
+  GEL
+  GHS
+  HUF
+  IDR
+  INR
+  IRR
+  KES
+  KGS
+  KZT
+  LKR
+  MDL
+  MXN
+  MYR
+  MZN
+  NGN
+  NPR
+  PEN
+  PHP
+  PKR
+  PLN
+  PYG
+  RON
+  SGD
+  THB
+  TJS
+  TMT
+  TZS
+  UAH
+  USD
+  UXB
+  UYU
+  UZS
+  VND
+  XOF
+  USDT
+  USDC
+  DAI
+  MATIC
+  TRX
+  METH
+  UBTC
+}
+
+model Transaction {
+  id           String              @id
+  cash         Float               @default(0)
+  bonus        Float               @default(0)
+  locked       Float               @default(0)
+  io           Int
+  type         TransactionType
+  platform     String
+  currency     TransactionCurrency @default(USD)
+  initiatedAt  DateTime            @db.Timestamptz(3)
+  createdAt    DateTime            @db.Timestamptz(3)
+  context      Json                @default("{}")
+  userId       String
+  chainId      Int                 @default(0)
+  tokenAddress String?
+  tokenAmount  Float               @default(0)
+  isDeleted    Int                 @default(0)
+  note         String?
+  txHash       String?
+  gameId       String?
+  eventType    String?
+  eventId      String?
+  tokenName    String              @default("0")
+  providerId   Int?
+  provider     String?
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@index([eventId])
+  @@index([eventType])
+  @@index([gameId])
+  @@index([platform])
+  @@index([userId])
+  @@index([txHash])
+  @@map("transactions")
+}
+
+model WhitelistIP {
+  id   Int     @id @default(autoincrement())
+  ip   String
+  note String?
+
+  @@map("whitelist_ips")
+}
+
+model WithdrawRequest {
+  id           Int       @id @default(autoincrement())
+  userId       String
+  cash         Float
+  chainId      Int
+  note         String?
+  createdAt    DateTime  @default(now()) @db.Timestamptz(3)
+  issuedAt     DateTime? @db.Timestamptz(3)
+  txHash       String?
+  tokenAddress String?
+  tokenAmount  Float     @default(0)
+  address      String
+  status       Int       @default(0) // 0: pending, 1: approved, 2: banned, 3: canceled
+  approvedCash Float     @default(0)
+  tokenName    String    @default("0")
+  ip           String    @default("")
+  country      String    @default("")
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@map("withdraw_requests")
+}
+
+model FungamessGame {
+  id              Int      @id
+  name            String
+  providerId      Int
+  demo            Boolean?
+  typeId          Int
+  category        String
+  bonus_buy       Boolean
+  type            String
+  img             String?
+  img_vertical    String?
+  img_provider    String?
+  game_background String?
+  basicRTP        Float?
+  lowRTP          Float?
+  device          String?
+  category_icon   String?
+  img_custom      String?
+  isDeleted       Boolean  @default(false)
+
+  @@map("fungamess_games")
+}
+
+model FungamessProvider {
+  id           Int     @id
+  name         String
+  logo         String
+  category     Int
+  slider_image String
+  added_slot   Boolean @default(false)
+  logoSvg      String?
+  count        Int     @default(0)
+  order        Int     @default(1000)
+
+  @@map("fungamess_providers")
+}
+
+model CustomGameCategory {
+  id       Int    @id @default(autoincrement())
+  gameId   String
+  category String
+  order    Int    @default(1000)
+
+  GR8Game GR8Game? @relation(fields: [gameId], references: [id])
+
+  @@map("custom_game_categories")
+}
+
+model TokenPrice {
+  id            Int      @id @default(autoincrement())
+  chainId       Int
+  tokenAddress  String
+  usdPrice      Float
+  updatedAt     DateTime @db.Timestamptz(3)
+  minimumLimit  Float    @default(0)
+  tokenName     String   @default("")
+  tokenSymbol   String   @default("")
+  tokenIcon     String   @default("")
+  tokenDecimals Int      @default(18)
+  dbField       String   @default("0")
+
+  @@map("token_prices")
+}
+
+model FailedTransaction {
+  id           Int       @id @default(autoincrement())
+  userId       String
+  chainId      Int
+  tokenAddress String
+  tokenAmount  Float
+  txHash       String
+  signature    String
+  address      String
+  reason       String
+  note         String?
+  createdAt    DateTime? @db.Timestamptz(3)
+
+  @@map("failed_transactions")
+}
+
+model GlobalUser {
+  id         BigInt   @id @default(autoincrement())
+  email      String
+  userName   String
+  iframeHost String
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+
+  @@map("global_users")
+}
+
+model IframeHost {
+  name     String @id
+  ip       String @unique
+  endpoint String @unique
+
+  @@map("iframe_hosts")
+}
+
+enum PredictDepositType {
+  visited
+  checked
+  socket_service
+}
+
+model PredictDeposit {
+  id           Int                @id @default(autoincrement())
+  userId       String
+  createdAt    DateTime           @default(now()) @db.Timestamptz(3)
+  type         PredictDepositType
+  chainId      Int                @default(0)
+  tokenAddress String             @default("")
+
+  @@map("predict_deposits")
+}
+
+model FavoriteGame {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  gameId    String
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+
+  GR8Game GR8Game? @relation(fields: [gameId], references: [id])
+
+  @@map("favorite_games")
+}
+
+model SummarizedBetLog {
+  yearMonth Int @id
+
+  @@map("summarized_bet_logs")
+}
+
+model ReferralReward {
+  userId     String
+  yearMonth  Int
+  reward     Float
+  bFinalized Boolean
+
+  @@id([userId, yearMonth])
+  @@map("referral_rewards")
+}
+
+model RecentGame {
+  id        BigInt   @id @default(autoincrement())
+  userId    String
+  gameId    String
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+
+  GR8Game GR8Game? @relation(fields: [gameId], references: [id])
+
+  @@map("recent_games")
+}
+
+model ChatMessage {
+  id               BigInt   @id @default(autoincrement())
+  senderId         String
+  message          String
+  filepaths        String[]
+  filenames        String[]
+  replyId          BigInt?
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime @default(now()) @db.Timestamptz(3)
+  isEdited         Boolean
+  isDeleted        Boolean
+  mentionedUserIds String[]
+
+  User User @relation(fields: [senderId], references: [id])
+
+  @@map("chat_messages")
+}
+
+model SupportMessage {
+  id          BigInt   @id @default(autoincrement())
+  userId      String
+  supporterId String?
+  message     String
+  filepaths   String[]
+  filenames   String[]
+  replyId     BigInt?
+  createdAt   DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime @default(now()) @db.Timestamptz(3)
+  isEdited    Boolean
+  isDeleted   Boolean
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@map("support_messages")
+}
+
+model Setting {
+  id    String  @id
+  value String?
+
+  @@map("settings")
+}
+
+model VIPLevel {
+  id           Int    @id
+  wagered      Float  @default(0)
+  rakeback     Float  @default(0)
+  cashback     Float  @default(0)
+  title        String @default("")
+  levelUpBonus Float  @default(0)
+
+  @@map("vip_levels")
+}
+
+enum UserActivityType {
+  LOGIN
+  LOGOUT
+  REGISTER
+  PLAYGAME
+  DEPOSIT
+  WITHDRAW
+}
+
+model UserActivity {
+  id        BigInt           @id @default(autoincrement())
+  userId    String
+  createdAt DateTime         @default(now()) @db.Timestamptz(3)
+  type      UserActivityType
+  gameId    String?
+  gameName  String?
+  provider  String?
+  ip        String
+  country   String
+  cash      Int?
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@map("user_activities")
+}
+
+model XSwiftlyRequest {
+  invoiceNumber String    @id
+  userId        String
+  createdAt     DateTime  @default(now()) @db.Timestamptz(3)
+  fullName      String
+  amount        Float
+  transactionId String?   @unique
+  email         String
+  phone         String
+  country       String
+  status        Int // 0: xswiftly-request-error
+  statusText    String?
+  message       String?
+  issuedAt      DateTime? @default(now()) @db.Timestamptz(3)
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@map("xswiftly_requests")
+}
+
+model Prize {
+  id        Int      @id @default(autoincrement())
+  startedAt DateTime @default(now()) @db.Timestamptz(3)
+  endedAt   DateTime @default(now()) @db.Timestamptz(3)
+  status    Int      @default(0) // 0: progress, 1: ended
+  prize     Float    @default(0) // total prize
+  updatedAt DateTime @default(now()) @db.Timestamptz(3)
+
+  @@map("prizes")
+}
+
+model PrizeUser {
+  prizeId Int
+  userId  String
+  wagered Float
+  prize   Float
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@id([prizeId, userId])
+  @@map("prize_users")
+}
+
+model Streamer {
+  id       String @id
+  userName String
+
+  @@map("streamers")
+}
+
+model ProviderFee {
+  id           Int    @id
+  providerName String
+  fee          Float
+
+  @@map("provider_fees")
+}
+
+model GR8Game {
+  id                   String  @id
+  walletId             String
+  productType          String
+  translationKey       String
+  gameProvider         String
+  channel              String
+  dealerLanguage       String
+  imageUrl             String?
+  isDemoModeAvailable  Boolean
+  isFreeSpinsAvailable Boolean
+  isActive             Boolean
+  isDeleted            Boolean
+  img_custom           String?
+
+  CustomGameCategory CustomGameCategory[]
+  FavoriteGame       FavoriteGame[]
+  RecentGame         RecentGame[]
+
+  @@map("gr8_games")
+}
+
+model GR8Provider {
+  provider   String  @id
+  order      Int     @default(1000)
+  added_slot Boolean @default(false)
+  count      Int     @default(0)
+
+  @@map("gr8_providers")
+}
+
+model PendingMoney {
+  id          Int    @id @default(autoincrement())
+  userId      String
+  tokenName   String
+  tokenAmount Float
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@map("pending_money")
+}

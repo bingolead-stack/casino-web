@@ -1,0 +1,16 @@
+input.my-input {
+  border-radius: 12px;
+  background: #222733;
+  border: 1px solid #4142590A;
+  padding: 12px;
+  outline: none;
+  font-family: Outfit;
+  font-size: 16px;
+  font-weight: 335;
+  line-height: 15px;
+  text-align: left;
+
+  &:focus {
+    border-color: #8b8db0;
+  }
+}

@@ -1,0 +1,126 @@
+@import "/src/styles/mixins";
+
+.providerFilter {
+  position: relative;
+
+  .selectButton {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 10px;
+    padding: 0px 16px;
+    font-family: Outfit;
+    background: #222733;
+    width: 160px;
+    justify-content: space-between;
+
+    @include for-mobile-only {
+      padding: 0px 10px;
+    }
+
+    .title {
+      margin: 0 8px 0 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 12px;
+      word-break: keep-all;
+    }
+  }
+
+  // &.open .selectButton {
+  //   border: 1px solid var(--primary-color);
+  // }
+
+  .dropdown {
+    background: var(--header-background);
+    box-shadow: 0px 0px 15px 1px #000;
+    padding: 16px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    top: calc(100% + 10px);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include for-mobile-only {
+      width: calc(100vw - 22px);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h5 {
+        font-family: Outfit;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 10px;
+        text-align: left;
+        margin: 0;
+        color: #ffffff;
+      }
+    }
+
+    .list {
+      border: 1px solid #3b4368;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      max-height: 320px;
+      overflow-y: auto;
+
+      @include for-mobile-only {
+        max-height: 180px;
+      }
+
+      li {
+        border-bottom: 1px solid #292e48;
+        .item {
+          padding: 12px 16px;
+          display: flex;
+          align-items: center;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .name {
+            font-family: Outfit;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 12px;
+            text-align: left;
+            text-transform: capitalize;
+            margin: 0 auto 0 9px;
+          }
+
+          .count {
+            background: #13142b;
+            padding: 4px 6px 2px 6px;
+            border-radius: 20px;
+            color: var(--primary-color);
+            font-family: Outfit;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 15px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
